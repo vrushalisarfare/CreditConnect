@@ -4,7 +4,7 @@ node{
        }
   stage('Build & Package') {
 withSonarQubeEnv('sonar-6') {
-sh 'mvn clean package sonar:sonar'
+bat 'mvn clean package sonar:sonar'
 }
 }
   //stage('Compile-Package'){

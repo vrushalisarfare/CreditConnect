@@ -3,15 +3,14 @@ node{
        git 'https://github.com/vrushalisarfare/javaloginapp'
        }
   stage('Compile-Package'){
-    def mvnHome = tool name: 'apache-maven-3.8.3-bin/apache-maven-3.8.3' , type: 'maven'
-   sh "C:/apache-maven-3.8.3-bin/apache-maven-3.8.3/bin/mvn package"
+    def mvnHome = tool name: 'apache-maven-3.8.3' , type: 'maven'
+   sh "${mvnHome}/bin/mvn sonar:sonar"
   }
   
   stage('SonarQube Analysis'){
-    def mvnHome = tool name: 'apache-maven-3.8.3-bin/apache-maven-3.8.3', type: 'maven'
+    def mvnHome = tool name: 'apache-maven-3.8.3', type: 'maven'
     withSonarQubeEnv('sonar-6'){
-      sh "C:/apache-maven-3.8.3-bin/apache-maven-3.8.3/bin/mvn package"
-     // sh "${mvnHome}/bin/mvn sonar:sonar"
+      sh "${mvnHome}/bin/mvn sonar:sonar"
     }
   }
        }

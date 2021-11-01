@@ -4,7 +4,7 @@ node{
        }
   stage('Compile-Package'){
     def mvnHome = tool name: 'apache-maven-3.8.3' , type: 'maven'
-   sh "${mvnHome}/bin/mvn sonar:sonar"
+   sh "${mvnHome}/bin/mvn package"
   }
   
   stage('SonarQube Analysis'){

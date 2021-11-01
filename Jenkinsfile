@@ -1,6 +1,6 @@
 node{
   stage('SCM Checkout'){
-       git 'https://github.com/vrushalisarfare/javaloginapp'
+       git 'https://github.com/vrushalisarfare/javaloginapp.git'
        }
   stage('Compile-Package'){
     def mvnHome = tool name: 'maven-3' , type: 'maven'

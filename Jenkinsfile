@@ -3,12 +3,12 @@ node{
        git 'https://github.com/vrushalisarfare/javaloginapp.git'
        }
   stage('Compile-Package'){
-    def mvnHome = tool name: 'maven-3' , type: 'maven'
+    def mvnHome = tool name: 'maven' , type: 'maven'
     sh "${mvnHome}/bin/ mvn package"
   }
   
   stage('SonarQube Analysis'){
-    def mvnHome = tool name: 'maven-3', type: 'maven'
+    def mvnHome = tool name: 'maven', type: 'maven'
     withSonarQubeEnv('sonarqube-9.1'){
       sh "${mvnHome}/bin/mvn sonar:sonar"
     }

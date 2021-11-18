@@ -54,7 +54,7 @@ public class login {
 		if (userId != "")
 		{			
 			mv = new ModelAndView("user");
-			mv.addObject("username", userId);
+			mv.addObject("username1", userId);
 		}
 		else
 		{
